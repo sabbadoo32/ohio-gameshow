@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The House Always Wins</title>
+<meta name="description" content="A rigged gameshow about a rigged candidate: guess Fact or Fiction, spin the wheel, and lose your tax dollars anyway — every claim linked to its source.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,600&family=Libre+Franklin:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="marquee">
+  <div class="wrap top">
+    <a class="brand" href="#">The&nbsp;House&nbsp;Always&nbsp;Wins</a>
+    <div class="top-right">
+      <button class="audiobtn" id="musicBtn" aria-pressed="false">&#9834; Music</button>
+      <span class="badge">Beta &middot; draft claims</span>
+    </div>
+  </div>
+  <div class="bulbs" id="bulbs"></div>
+</header>
+
+<main id="game">
+  <section class="hero" id="hero">
+    <p class="eyebrow">A rigged game about a rigged candidate</p>
+    <h1>The House <span>Always</span> Wins</h1>
+    <p>Guess Fact or Fiction. Then spin &mdash; and watch your tax dollars vanish anyway, because the game is rigged. Just like the guy running for governor.</p>
+    <div class="scores" id="scores">
+      <div class="score you"><p class="l">Your tax dollars</p><div class="v" id="potV">$12,000</div><p class="sub">what you brought to play</p></div>
+      <div class="score house"><p class="l">The house <span style="opacity:.7">(Fake Vivek)</span></p><div class="v" id="houseV">$0</div><p class="sub">what he's taken so far</p></div>
+    </div>
+  </section>
+
+  <section class="wrap stage" id="stage">
+    <div class="wheel-wrap">
+      <div class="pointer"></div>
+      <svg class="wheel" id="wheel" viewBox="0 0 200 200" aria-label="Wheel of losses"></svg>
+      <div class="wheel-hub">THE<br>HOUSE</div>
+    </div>
+
+    <div class="panel">
+      <div class="host"><div class="mic">🎙️</div><div class="bubble" id="hostBubble">&mdash;</div></div>
+      <span class="round" id="round">Round 1</span><span class="cat" id="cat"></span>
+      <p class="claim" id="claim">&mdash;</p>
+
+      <div class="guess" id="guess">
+        <button class="fact" data-val="true" id="btnFact">Fact ✓</button>
+        <button class="fiction" data-val="false" id="btnFiction">Fiction ✗</button>
+      </div>
+
+      <div class="reveal" id="reveal">
+        <div class="head"><span class="verdict" id="verdict">&mdash;</span><span class="gres" id="gres"></span></div>
+        <p class="expl" id="expl"></p>
+        <p class="loss" id="loss"></p>
+        <p class="src" id="src"></p>
+        <button class="next" id="nextBtn">Next round ▸</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap endcard" id="endcard">
+    <p class="eyebrow">Game over</p>
+    <h2>The house took</h2>
+    <div class="big" id="endTotal">$0</div>
+    <p class="hostline" id="endHost"></p>
+    <p id="endSub">He always wins. That's the point of a rigged game &mdash; and it's how Ramaswamy's plan would drain the Ohio schools 90% of kids depend on.</p>
+    <div class="cta-row">
+      <a class="btn gold" href="#">Take action ▸</a>
+      <button class="btn line" id="againBtn">Play again</button>
+    </div>
+  </section>
+</main>
+
+<footer>Claims link to their sources. Draft claims are placeholders drawn from fakevivek.com &mdash; replace with fact-checked copy in <code>data/claims.json</code>.</footer>
+
+<script src="assets/js/game.js" defer></script>
+</body>
+</html>

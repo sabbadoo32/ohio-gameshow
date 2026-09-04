@@ -1,0 +1,200 @@
+[
+  {
+    "id": "tax-protects-schools",
+    "category": "Schemes",
+    "claim": "Vivek says his income-tax plan would leave Ohio school funding untouched.",
+    "answer": "false",
+    "verdict": "Fiction",
+    "explanation": "DRAFT — verify against source. A report found his plan would gut funding for Ohio schools and Medicaid.",
+    "sourceUrl": "https://tiffinohio.net/posts/report-ramaswamy-tax-plan-would-gut-ohio-schools-medicaid/",
+    "sourcePublisher": "Tiffin Ohio / report",
+    "status": "draft"
+  },
+  {
+    "id": "tax-protects-medicaid",
+    "category": "Schemes",
+    "claim": "Ramaswamy's tax plan protects Medicaid for Ohio families.",
+    "answer": "false",
+    "verdict": "Fiction",
+    "explanation": "DRAFT — verify against source. The same report ties his tax plan to deep Medicaid cuts.",
+    "sourceUrl": "https://tiffinohio.net/posts/report-ramaswamy-tax-plan-would-gut-ohio-schools-medicaid/",
+    "sourcePublisher": "Tiffin Ohio / report",
+    "status": "draft"
+  },
+  {
+    "id": "tax-lower-for-families",
+    "category": "Schemes",
+    "claim": "Vivek's tax plan means lower taxes for the average Ohio family.",
+    "answer": "false",
+    "verdict": "Fiction",
+    "explanation": "DRAFT — verify against source. A report shows it would cause deep cuts and HIGHER taxes for Ohio families.",
+    "sourceUrl": "https://ohiocapitaljournal.com/2026/03/09/new-report-shows-ramaswamys-tax-plan-would-cause-deep-cuts-and-higher-taxes-for-ohio-families/",
+    "sourcePublisher": "Ohio Capital Journal",
+    "status": "draft"
+  },
+  {
+    "id": "tax-no-cuts",
+    "category": "Schemes",
+    "claim": "Analysts say Ramaswamy's tax plan balances without cutting services.",
+    "answer": "false",
+    "verdict": "Fiction",
+    "explanation": "DRAFT — verify against source. Analysis points to deep cuts to core services.",
+    "sourceUrl": "https://ohiocapitaljournal.com/2026/03/09/new-report-shows-ramaswamys-tax-plan-would-cause-deep-cuts-and-higher-taxes-for-ohio-families/",
+    "sourcePublisher": "Ohio Capital Journal",
+    "status": "draft"
+  },
+  {
+    "id": "tax-helps-working",
+    "category": "Schemes",
+    "claim": "An independent report found Ramaswamy's income-tax plan helps working Ohioans most.",
+    "answer": "false",
+    "verdict": "Fiction",
+    "explanation": "DRAFT — verify against source. The report indicates the biggest benefits flow to the wealthy.",
+    "sourceUrl": "https://static1.squarespace.com/static/67dc94ee5e35aa4eb80d7b0c/t/6994cf6fefe31c5a7a120e1e/1771360111523/Report+What+Vivek+Ramaswamy%E2%80%99s+Income+Tax+Plan+Would+Mean+for+Ohio.pdf",
+    "sourcePublisher": "Income tax plan report (PDF)",
+    "status": "draft"
+  },
+  {
+    "id": "property-simple-break",
+    "category": "Schemes",
+    "claim": "Vivek's property-tax proposal is a straightforward break for homeowners.",
+    "answer": "false",
+    "verdict": "Fiction",
+    "explanation": "DRAFT — verify against source. Critics call it a 'scam' that doesn't deliver as advertised.",
+    "sourceUrl": "https://www.innovationohio.org/ramaswamys-property-tax-scam",
+    "sourcePublisher": "Innovation Ohio",
+    "status": "draft"
+  },
+  {
+    "id": "univ-protect-all",
+    "category": "Schemes",
+    "claim": "Vivek has pledged to protect all of Ohio's public universities.",
+    "answer": "false",
+    "verdict": "Fiction",
+    "explanation": "DRAFT — verify against source. He remains focused on shutting down 'subpar' Ohio universities.",
+    "sourceUrl": "https://ohiocapitaljournal.com/2026/04/24/vivek-ramaswamy-still-focused-on-shutting-down-subpar-ohio-universities/",
+    "sourcePublisher": "Ohio Capital Journal",
+    "status": "draft"
+  },
+  {
+    "id": "univ-keep-open",
+    "category": "Schemes",
+    "claim": "Ramaswamy wants to keep every Ohio public university open.",
+    "answer": "false",
+    "verdict": "Fiction",
+    "explanation": "DRAFT — verify against source. Reporting shows he wants to close universities he deems 'subpar'.",
+    "sourceUrl": "https://www.news5cleveland.com/news/politics/ohio-politics/vivek-ramaswamy-still-focused-on-shutting-down-subpar-ohio-universities",
+    "sourcePublisher": "News5 Cleveland",
+    "status": "draft"
+  },
+  {
+    "id": "datacenter-no-stake",
+    "category": "Schemes",
+    "claim": "Vivek has no personal financial stake in Ohio's data-center boom.",
+    "answer": "false",
+    "verdict": "Fiction",
+    "explanation": "DRAFT — verify against source. His portfolio shows financial interests tied to data centers.",
+    "sourceUrl": "https://www.innovationohio.org/vivek-ramaswamys-data-center-portfolio",
+    "sourcePublisher": "Innovation Ohio",
+    "status": "draft"
+  },
+  {
+    "id": "datacenter-jobs",
+    "category": "Schemes",
+    "claim": "Ramaswamy's data-center push is purely about creating Ohio jobs.",
+    "answer": "false",
+    "verdict": "Fiction",
+    "explanation": "DRAFT — verify against source. Reporting shows he stands to profit personally.",
+    "sourceUrl": "https://www.innovationohio.org/vivek-ramaswamys-data-center-portfolio",
+    "sourcePublisher": "Innovation Ohio",
+    "status": "draft"
+  },
+  {
+    "id": "anduril-no-conflict",
+    "category": "Schemes",
+    "claim": "Ramaswamy's financial ties to defense firm Anduril pose no conflict of interest.",
+    "answer": "false",
+    "verdict": "Fiction",
+    "explanation": "DRAFT — verify against source. Critics call the ties 'unacceptable' for a candidate.",
+    "sourceUrl": "https://columbusunderground.com/critics-ramaswamys-financial-ties-to-anduril-are-unacceptable-ocj1/",
+    "sourcePublisher": "Columbus Underground",
+    "status": "draft"
+  },
+  {
+    "id": "roivant-cure",
+    "category": "Scams",
+    "claim": "Ramaswamy built his fortune on a proven Alzheimer's cure.",
+    "answer": "false",
+    "verdict": "Fiction",
+    "explanation": "DRAFT — verify against source. The drug at the center of the deal failed; he still made a fortune.",
+    "sourceUrl": "https://www.rawstory.com/vivek-ramaswamy-2677693624/",
+    "sourcePublisher": "Raw Story",
+    "status": "draft"
+  },
+  {
+    "id": "roivant-patients",
+    "category": "Scams",
+    "claim": "Vivek's company made him rich by delivering breakthrough drugs to patients.",
+    "answer": "false",
+    "verdict": "Fiction",
+    "explanation": "DRAFT — verify against source. Reporting frames it as profiting while patients got no cure.",
+    "sourceUrl": "https://www.rawstory.com/vivek-ramaswamy-2677693624/",
+    "sourcePublisher": "Raw Story",
+    "status": "draft"
+  },
+  {
+    "id": "is-billionaire",
+    "category": "Scams",
+    "claim": "Ramaswamy is a billionaire.",
+    "answer": "true",
+    "verdict": "Fact",
+    "explanation": "DRAFT — verify against source. He is an out-of-touch billionaire, per the campaign framing and reporting.",
+    "sourceUrl": "https://www.innovationohio.org/vivek-ramaswamys-data-center-portfolio",
+    "sourcePublisher": "Innovation Ohio",
+    "status": "draft"
+  },
+  {
+    "id": "profits-datacenter",
+    "category": "Scams",
+    "claim": "Ramaswamy personally profits from Ohio's data-center boom.",
+    "answer": "true",
+    "verdict": "Fact",
+    "explanation": "DRAFT — verify against source. His data-center portfolio documents the financial interest.",
+    "sourceUrl": "https://www.innovationohio.org/vivek-ramaswamys-data-center-portfolio",
+    "sourcePublisher": "Innovation Ohio",
+    "status": "draft"
+  },
+  {
+    "id": "alz-hundreds-millions",
+    "category": "Scams",
+    "claim": "Ramaswamy made hundreds of millions connected to an Alzheimer's drug that failed.",
+    "answer": "true",
+    "verdict": "Fact",
+    "explanation": "DRAFT — verify against source. Reporting details the windfall despite the drug's failure.",
+    "sourceUrl": "https://www.rawstory.com/vivek-ramaswamy-2677693624/",
+    "sourcePublisher": "Raw Story",
+    "status": "draft"
+  },
+  {
+    "id": "tax-cuts-services",
+    "category": "Schemes",
+    "claim": "Ramaswamy's tax plan would force deep cuts to Ohio public services.",
+    "answer": "true",
+    "verdict": "Fact",
+    "explanation": "DRAFT — verify against source. A report ties the plan to deep cuts across services.",
+    "sourceUrl": "https://ohiocapitaljournal.com/2026/03/09/new-report-shows-ramaswamys-tax-plan-would-cause-deep-cuts-and-higher-taxes-for-ohio-families/",
+    "sourcePublisher": "Ohio Capital Journal",
+    "status": "draft"
+  },
+  {
+    "id": "targets-universities",
+    "category": "Schemes",
+    "claim": "Ramaswamy has targeted Ohio public universities for closure.",
+    "answer": "true",
+    "verdict": "Fact",
+    "explanation": "DRAFT — verify against source. He is focused on shutting down 'subpar' universities.",
+    "sourceUrl": "https://ohiocapitaljournal.com/2026/04/24/vivek-ramaswamy-still-focused-on-shutting-down-subpar-ohio-universities/",
+    "sourcePublisher": "Ohio Capital Journal",
+    "status": "draft"
+  }
+]
