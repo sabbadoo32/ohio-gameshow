@@ -184,4 +184,16 @@ function initGame(BANK){
   initReel(); deck=buildDeck(); showRound();
 }
 
-fetch('data/claims.json').then(function(r){if(!r.ok)throw new Error('HTTP '+r.status);return r.json();}).then(initGame).catch(function(e){var b=document.getElementById('hostBubble');if(b)b.textContent='Could not load the questions. If viewing the file directly, run a local server (see README).';console.error('claims load failed:',e);});
+function loadClaims(tries){
+  return fetch('data/claims.json?cb='+Date.now(),{cache:'no-store'})
+    .then(function(r){if(!r.ok)throw new Error('HTTP '+r.status);return r.json();})
+    .catch(function(e){
+      if(tries>0){ return new Promise(function(res){setTimeout(res,700);}).then(function(){return loadClaims(tries-1);}); }
+      throw e;
+    });
+}
+loadClaims(3).then(initGame).catch(function(e){
+  var b=document.getElementById('hostBubble');
+  if(b)b.textContent='Could not load the questions — check your connection and refresh.';
+  console.error('claims load failed:',e);
+});
