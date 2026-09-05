@@ -97,7 +97,8 @@ function initGame(BANK){
       guessBox=document.getElementById('guess'),btnFact=document.getElementById('btnFact'),btnFiction=document.getElementById('btnFiction'),
       reveal=document.getElementById('reveal'),verdictEl=document.getElementById('verdict'),gresEl=document.getElementById('gres'),
       explEl=document.getElementById('expl'),lossEl=document.getElementById('loss'),srcEl=document.getElementById('src'),
-      nextBtn=document.getElementById('nextBtn'),wheel=document.getElementById('wheel');
+      nextBtn=document.getElementById('nextBtn'),wheel=document.getElementById('wheel'),
+      wheelHub=document.getElementById('wheelHub');
   var money=function(n){return '$'+Math.round(n).toLocaleString();};
   function tween(el,from,to,dur){ if(reduce){el.textContent=money(to);return;} var t0=null;
     function fr(t){if(!t0)t0=t;var p=Math.min((t-t0)/dur,1);el.textContent=money(from+(to-from)*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(fr);}
@@ -131,9 +132,11 @@ function initGame(BANK){
     var landed=Math.floor(Math.random()*N), turns=4+Math.floor(Math.random()*3);
     var target=turns*360+(360-(landed*STEP+STEP/2)); rotation+=target-(rotation%360);
     wheel.style.transform='rotate('+rotation+'deg)';
+    if(wheelHub)wheelHub.classList.add('whirl');
     var settle=reduce?600:4600; startTicks(settle);
     setTimeout(function(){
       stopTicks();
+      if(wheelHub)wheelHub.classList.remove('whirl');
       var amt=WEDGES[landed].amt; if(amt>pot)amt=pot;
       var p0=pot,h0=house; pot-=amt; house+=amt;
       tween(potV,p0,pot,800); tween(houseV,h0,house,800); flyMoney(); sfxDing();

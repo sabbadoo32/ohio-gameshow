@@ -43,10 +43,16 @@ a{color:var(--gold-bright)}
 .pointer{position:absolute;top:-6px;left:50%;transform:translateX(-50%);z-index:5;width:0;height:0;
   border-left:16px solid transparent;border-right:16px solid transparent;border-top:26px solid var(--gold-bright);filter:drop-shadow(0 2px 3px rgba(0,0,0,.5))}
 .wheel{width:100%;height:100%;border-radius:50%;transition:transform 4.6s cubic-bezier(.13,.72,.16,1);filter:drop-shadow(0 14px 30px rgba(0,0,0,.55));transform:rotate(0deg)}
-.wheel-hub{position:absolute;top:50%;left:50%;width:64px;height:64px;transform:translate(-50%,-50%);border-radius:50%;
-  background:radial-gradient(circle at 40% 35%,#fff,#d7dde8 60%,#aab3c4);border:3px solid var(--gold);z-index:4;display:grid;place-items:center;
-  font-family:var(--serif);font-weight:700;color:var(--stage);font-size:12px;text-align:center;line-height:.95}
-@media(prefers-reduced-motion:reduce){.wheel{transition:transform .6s ease-out}}
+.wheel-hub{position:absolute;top:50%;left:50%;width:78px;height:78px;transform:translate(-50%,-50%);border-radius:50%;
+  border:3px solid var(--gold);z-index:4;overflow:hidden;background:var(--stage);
+  box-shadow:0 3px 10px rgba(0,0,0,.5)}
+.wheel-hub img{width:100%;height:100%;object-fit:cover;display:block;transform-origin:center}
+/* the head whirls the opposite way while the wheel spins, with a gleeful wobble */
+.wheel-hub.whirl img{animation:hub-whirl 1s linear infinite reverse, hub-bob .5s ease-in-out infinite}
+@keyframes hub-whirl{to{transform:rotate(360deg)}}
+@keyframes hub-bob{0%,100%{scale:1}50%{scale:1.08}}
+@media(prefers-reduced-motion:reduce){.wheel{transition:transform .6s ease-out}
+  .wheel-hub.whirl img{animation:none}}
 
 .panel{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:24px;position:relative;overflow:hidden}
 .host{display:flex;gap:12px;align-items:flex-start;margin-bottom:18px}
