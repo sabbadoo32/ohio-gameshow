@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,600&family=Libre+Franklin:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600;700&display=swap">
-<link rel="stylesheet" href="assets/css/style.css?v=3">
+<link rel="stylesheet" href="assets/css/style.css?v=4">
 </head>
 <body>
 
@@ -35,10 +35,15 @@
   </section>
 
   <section class="wrap stage" id="stage">
-    <div class="wheel-wrap">
-      <div class="pointer"></div>
-      <svg class="wheel" id="wheel" viewBox="0 0 200 200" aria-label="Wheel of losses"></svg>
-      <div class="wheel-hub" id="wheelHub"><img src="assets/img/vivek-hub.png?v=3" alt="The house"></div>
+    <div class="reel" id="reel">
+      <div class="reel-head" id="reelHead">
+        <img src="assets/img/vivek-hub.png?v=4" alt="The house">
+        <span class="reel-beak"></span>
+      </div>
+      <div class="reel-window" id="reelWindow" aria-label="Wheel of losses">
+        <div class="reel-track" id="reelTrack"></div>
+        <div class="reel-fade"></div>
+      </div>
     </div>
 
     <div class="panel">

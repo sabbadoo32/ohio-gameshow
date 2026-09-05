@@ -55,24 +55,25 @@ function initGame(BANK){
   try{ if(localStorage.getItem('fv_music')==='on'){/* wait for gesture */} }catch(e){}
   musicBtn.addEventListener('click',function(){ if(musicOn){stopMusic();musicBtn.setAttribute('aria-pressed','false');try{localStorage.setItem('fv_music','off');}catch(e){}} else {startMusic();musicBtn.setAttribute('aria-pressed','true');try{localStorage.setItem('fv_music','on');}catch(e){}} });
 
-  // ---------- wheel (every wedge loses) ----------
+  // ---------- reel (Price-is-Right style; every segment loses) ----------
   var WEDGES=[{amt:100,label:"$100"},{amt:300,label:"$300"},{amt:150,label:"$150"},{amt:250,label:"$250"},
-    {amt:120,label:"$120"},{amt:1200,label:"HOUSE\nTAKES ALL"},{amt:200,label:"$200"},{amt:90,label:"$90"}];
+    {amt:120,label:"$120"},{amt:1200,label:"HOUSE|TAKES ALL"},{amt:200,label:"$200"},{amt:90,label:"$90"}];
   var COLORS=['#1c2740','#e0454f','#1c2740','#3a6fe0','#1c2740','#f4b301','#1c2740','#3a6fe0'];
-  var N=WEDGES.length,STEP=360/N,cx=100,cy=100,r=100,ns='http://www.w3.org/2000/svg';
-  function pt(a,rad){var x=(a-90)*Math.PI/180;return[cx+rad*Math.cos(x),cy+rad*Math.sin(x)];}
-  var svg=document.getElementById('wheel');
-  WEDGES.forEach(function(w,i){var s=i*STEP,e=(i+1)*STEP,p0=pt(s,r),p1=pt(e,r);
-    var path=document.createElementNS(ns,'path');
-    path.setAttribute('d','M'+cx+' '+cy+' L'+p0[0]+' '+p0[1]+' A'+r+' '+r+' 0 0 1 '+p1[0]+' '+p1[1]+' Z');
-    path.setAttribute('fill',COLORS[i]);path.setAttribute('stroke','#0b1020');path.setAttribute('stroke-width','1.2');svg.appendChild(path);
-    var mid=s+STEP/2,lp=pt(mid,r*0.64),lines=w.label.split('\n');
-    var text=document.createElementNS(ns,'text');text.setAttribute('x',lp[0]);text.setAttribute('y',lp[1]);
-    text.setAttribute('fill',COLORS[i]==='#f4b301'?'#1a1205':'#fff');text.setAttribute('font-family',"'IBM Plex Mono',monospace");
-    text.setAttribute('font-size',lines.length>1?'8':'11');text.setAttribute('font-weight','700');text.setAttribute('text-anchor','middle');
-    text.setAttribute('transform','rotate('+mid+' '+lp[0]+' '+lp[1]+')');
-    lines.forEach(function(ln,li){var ts=document.createElementNS(ns,'tspan');ts.setAttribute('x',lp[0]);ts.setAttribute('dy',li===0?(lines.length>1?-2:0):9);ts.textContent=ln;text.appendChild(ts);});
-    svg.appendChild(text);});
+  var N=WEDGES.length, COPIES=10, startCopy=2, prevK=0, SW=0;
+  var reelTrack=document.getElementById('reelTrack'),
+      reelWindow=document.getElementById('reelWindow'),
+      reelHead=document.getElementById('reelHead');
+  for(var cpy=0;cpy<COPIES;cpy++){ WEDGES.forEach(function(w,i){
+    var seg=document.createElement('div'); seg.className='reel-seg';
+    seg.style.background=COLORS[i]; if(COLORS[i]==='#f4b301')seg.style.color='#1a1205';
+    var parts=w.label.split('|');
+    seg.innerHTML = parts.length>1 ? '<small>'+parts[0]+'<br>'+parts[1]+'</small>' : w.label;
+    reelTrack.appendChild(seg);
+  }); }
+  function centerFor(gi){ return (reelWindow.clientWidth/2) - (gi*SW + SW/2); }
+  function placeReel(gi,anim){ reelTrack.style.transition = anim||'none'; reelTrack.style.transform='translateX('+centerFor(gi)+'px)'; }
+  function initReel(){ SW=reelTrack.children[0].getBoundingClientRect().width||118; placeReel(startCopy*N+prevK); }
+  window.addEventListener('resize',function(){ if(spinning)return; SW=reelTrack.children[0].getBoundingClientRect().width||118; placeReel(startCopy*N+prevK); });
   var bulbs=document.getElementById('bulbs');for(var b=0;b<28;b++){var el=document.createElement('i');el.style.animationDelay=(b*0.08)+'s';bulbs.appendChild(el);}
 
   // ---------- dynamic deck (no-repeat across plays) ----------
@@ -97,10 +98,7 @@ function initGame(BANK){
       guessBox=document.getElementById('guess'),btnFact=document.getElementById('btnFact'),btnFiction=document.getElementById('btnFiction'),
       reveal=document.getElementById('reveal'),verdictEl=document.getElementById('verdict'),gresEl=document.getElementById('gres'),
       explEl=document.getElementById('expl'),lossEl=document.getElementById('loss'),srcEl=document.getElementById('src'),
-      nextBtn=document.getElementById('nextBtn'),wheel=document.getElementById('wheel'),
-      wheelHub=document.getElementById('wheelHub'),
-      hubImg=wheelHub?wheelHub.querySelector('img'):null;
-  var headRot=0;
+      nextBtn=document.getElementById('nextBtn');
   var money=function(n){return '$'+Math.round(n).toLocaleString();};
   function tween(el,from,to,dur){ if(reduce){el.textContent=money(to);return;} var t0=null;
     function fr(t){if(!t0)t0=t;var p=Math.min((t-t0)/dur,1);el.textContent=money(from+(to-from)*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(fr);}
@@ -131,14 +129,18 @@ function initGame(BANK){
 
   function spin(){
     if(spinning)return; spinning=true;
-    var landed=Math.floor(Math.random()*N), turns=4+Math.floor(Math.random()*3);
-    var target=turns*360+(360-(landed*STEP+STEP/2)); rotation+=target-(rotation%360);
-    wheel.style.transform='rotate('+rotation+'deg)';
-    if(hubImg){ headRot-=turns*360; hubImg.style.transform='rotate('+headRot+'deg)'; } // counter-spin, lands upright
-    var settle=reduce?600:4600; startTicks(settle);
+    if(!SW||SW<10) initReel();
+    var k=Math.floor(Math.random()*N), strips=5;
+    var dest=startCopy*N + strips*N + k;
+    var settle=reduce?700:4200;
+    placeReel(dest,'transform '+(settle/1000)+'s cubic-bezier(.12,.75,.16,1)');
+    startTicks(settle);
     setTimeout(function(){
       stopTicks();
-      var amt=WEDGES[landed].amt; if(amt>pot)amt=pot;
+      placeReel(startCopy*N + k);   // seamless normalize (same segment, earlier copy)
+      prevK=k;
+      if(reelHead){ reelHead.classList.add('react'); setTimeout(function(){reelHead.classList.remove('react');},1300); }
+      var amt=WEDGES[k].amt; if(amt>pot)amt=pot;
       var p0=pot,h0=house; pot-=amt; house+=amt;
       tween(potV,p0,pot,800); tween(houseV,h0,house,800); flyMoney(); sfxDing();
       var c=deck[idx], correct=(guessed===c.answer);
@@ -146,12 +148,11 @@ function initGame(BANK){
       gresEl.className='gres '+(correct?'win':'lose');
       gresEl.textContent=correct?'✓ You guessed right — and lost anyway':'✗ You guessed wrong';
       explEl.textContent=c.explanation;
-      lossEl.textContent='Wheel: '+WEDGES[landed].label.replace('\n',' ')+' → the house took '+money(amt)+' of your tax dollars.';
+      lossEl.textContent='The reel landed on '+WEDGES[k].label.replace('|',' ')+' → the house took '+money(amt)+' of your tax dollars.';
       srcEl.innerHTML='<span><a href="'+c.sourceUrl+'" target="_blank" rel="noopener">Read the source</a> <span class="pub">'+c.sourcePublisher+'</span></span>';
       reveal.classList.add('show');
-      host(WEDGES[landed].amt>=3000?'houseAll':(amt>=1250?'lossBig':'lossSmall'));
+      host(WEDGES[k].amt>=1200?'houseAll':(amt>=250?'lossBig':'lossSmall'));
       nextBtn.textContent=(idx+1<ROUNDS)?'Next round ▸':'See the damage ▸';
-      // mark seen
       var seen=getSeen(); if(seen.indexOf(c.id)===-1){seen.push(c.id);setSeen(seen);}
       spinning=false;
     },settle);
@@ -180,7 +181,7 @@ function initGame(BANK){
     showRound(); window.scrollTo({top:0,behavior:'smooth'});
   });
 
-  deck=buildDeck(); showRound();
+  initReel(); deck=buildDeck(); showRound();
 }
 
 fetch('data/claims.json').then(function(r){if(!r.ok)throw new Error('HTTP '+r.status);return r.json();}).then(initGame).catch(function(e){var b=document.getElementById('hostBubble');if(b)b.textContent='Could not load the questions. If viewing the file directly, run a local server (see README).';console.error('claims load failed:',e);});
