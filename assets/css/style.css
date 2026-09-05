@@ -43,11 +43,12 @@ a{color:var(--gold-bright)}
 .pointer{position:absolute;top:-6px;left:50%;transform:translateX(-50%);z-index:5;width:0;height:0;
   border-left:16px solid transparent;border-right:16px solid transparent;border-top:26px solid var(--gold-bright);filter:drop-shadow(0 2px 3px rgba(0,0,0,.5))}
 .wheel{width:100%;height:100%;border-radius:50%;transition:transform 4.6s cubic-bezier(.13,.72,.16,1);filter:drop-shadow(0 14px 30px rgba(0,0,0,.55));transform:rotate(0deg)}
-/* floating transparent head at the pivot; it counter-spins with the wheel and lands upright */
-.wheel-hub{position:absolute;top:50%;left:50%;width:104px;height:104px;transform:translate(-50%,-50%);z-index:4;
-  filter:drop-shadow(0 4px 10px rgba(0,0,0,.6))}
-.wheel-hub img{width:100%;height:100%;object-fit:contain;display:block;transform-origin:center;
-  transition:transform 4.6s cubic-bezier(.13,.72,.16,1)}
+/* the head fills the center hub circle; counter-spins with the wheel, lands upright */
+.wheel-hub{position:absolute;top:50%;left:50%;width:120px;height:120px;transform:translate(-50%,-50%);
+  border-radius:50%;overflow:hidden;background:#fff;border:4px solid var(--gold);z-index:4;
+  box-shadow:0 4px 14px rgba(0,0,0,.55)}
+.wheel-hub img{width:100%;height:100%;object-fit:cover;object-position:center 42%;display:block;
+  transform-origin:center;transition:transform 4.6s cubic-bezier(.13,.72,.16,1)}
 @media(prefers-reduced-motion:reduce){.wheel{transition:transform .6s ease-out}
   .wheel-hub img{transition:transform .6s ease-out}}
 

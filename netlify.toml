@@ -9,7 +9,7 @@
 [[headers]]
   for = "/assets/*"
   [headers.values]
-    Cache-Control = "public, max-age=86400"
+    Cache-Control = "public, max-age=60"
 
 [[headers]]
   for = "/data/*"
