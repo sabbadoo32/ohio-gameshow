@@ -70,10 +70,10 @@ function initGame(BANK){
     seg.innerHTML = parts.length>1 ? '<small>'+parts[0]+'<br>'+parts[1]+'</small>' : w.label;
     reelTrack.appendChild(seg);
   }); }
-  function centerFor(gi){ return (reelWindow.clientWidth/2) - (gi*SW + SW/2); }
-  function placeReel(gi,anim){ reelTrack.style.transition = anim||'none'; reelTrack.style.transform='translateX('+centerFor(gi)+'px)'; }
-  function initReel(){ SW=reelTrack.children[0].getBoundingClientRect().width||118; placeReel(startCopy*N+prevK); }
-  window.addEventListener('resize',function(){ if(spinning)return; SW=reelTrack.children[0].getBoundingClientRect().width||118; placeReel(startCopy*N+prevK); });
+  function centerFor(gi){ return (reelWindow.clientHeight/2) - (gi*SW + SW/2); }
+  function placeReel(gi,anim){ reelTrack.style.transition = anim||'none'; reelTrack.style.transform='translateY('+centerFor(gi)+'px)'; }
+  function initReel(){ SW=reelTrack.children[0].getBoundingClientRect().height||88; placeReel(startCopy*N+prevK); }
+  window.addEventListener('resize',function(){ if(spinning)return; SW=reelTrack.children[0].getBoundingClientRect().height||88; placeReel(startCopy*N+prevK); });
   var bulbs=document.getElementById('bulbs');for(var b=0;b<28;b++){var el=document.createElement('i');el.style.animationDelay=(b*0.08)+'s';bulbs.appendChild(el);}
 
   // ---------- dynamic deck (no-repeat across plays) ----------
