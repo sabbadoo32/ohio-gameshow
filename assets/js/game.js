@@ -56,8 +56,8 @@ function initGame(BANK){
   musicBtn.addEventListener('click',function(){ if(musicOn){stopMusic();musicBtn.setAttribute('aria-pressed','false');try{localStorage.setItem('fv_music','off');}catch(e){}} else {startMusic();musicBtn.setAttribute('aria-pressed','true');try{localStorage.setItem('fv_music','on');}catch(e){}} });
 
   // ---------- wheel (every wedge loses) ----------
-  var WEDGES=[{amt:500,label:"$500"},{amt:1500,label:"$1,500"},{amt:750,label:"$750"},{amt:2000,label:"$2,000"},
-    {amt:1000,label:"$1,000"},{amt:3000,label:"HOUSE\nTAKES ALL"},{amt:1250,label:"$1,250"},{amt:900,label:"$900"}];
+  var WEDGES=[{amt:100,label:"$100"},{amt:300,label:"$300"},{amt:150,label:"$150"},{amt:250,label:"$250"},
+    {amt:120,label:"$120"},{amt:1200,label:"HOUSE\nTAKES ALL"},{amt:200,label:"$200"},{amt:90,label:"$90"}];
   var COLORS=['#1c2740','#e0454f','#1c2740','#3a6fe0','#1c2740','#f4b301','#1c2740','#3a6fe0'];
   var N=WEDGES.length,STEP=360/N,cx=100,cy=100,r=100,ns='http://www.w3.org/2000/svg';
   function pt(a,rad){var x=(a-90)*Math.PI/180;return[cx+rad*Math.cos(x),cy+rad*Math.sin(x)];}
@@ -91,7 +91,7 @@ function initGame(BANK){
   }
 
   // ---------- state ----------
-  var pot=12000,house=0,deck=[],idx=0,rotation=0,spinning=false,guessed=null;
+  var pot=1200,house=0,deck=[],idx=0,rotation=0,spinning=false,guessed=null;
   var potV=document.getElementById('potV'),houseV=document.getElementById('houseV'),
       claimEl=document.getElementById('claim'),roundEl=document.getElementById('round'),catEl=document.getElementById('cat'),
       guessBox=document.getElementById('guess'),btnFact=document.getElementById('btnFact'),btnFiction=document.getElementById('btnFiction'),
@@ -169,7 +169,7 @@ function initGame(BANK){
   btnFact.addEventListener('click',onGuess); btnFiction.addEventListener('click',onGuess);
   nextBtn.addEventListener('click',next);
   document.getElementById('againBtn').addEventListener('click',function(){
-    pot=12000;house=0;idx=0; potV.textContent=money(pot);houseV.textContent=money(house);
+    pot=1200;house=0;idx=0; potV.textContent=money(pot);houseV.textContent=money(house);
     deck=buildDeck();
     document.getElementById('endcard').classList.remove('show');
     document.getElementById('stage').style.display=''; document.getElementById('scores').style.display='';
