@@ -127,3 +127,24 @@ a{color:var(--gold-bright)}
 .fly{position:fixed;z-index:80;font-size:22px;pointer-events:none;animation:flyup 1.5s ease-out forwards}
 @keyframes flyup{0%{opacity:1;transform:translateY(0) rotate(0)}100%{opacity:0;transform:translateY(-160px) rotate(40deg)}}
 footer{border-top:1px solid var(--line);padding:22px 0 40px;color:var(--muted);font-family:var(--mono);font-size:11px;text-align:center}
+
+/* ---- "how the rig works" explainer + effect data ---- */
+.how{padding:20px 0 50px}
+.how .eyebrow{color:var(--gold-bright)}
+.how-title{font-family:var(--serif);font-weight:700;font-size:clamp(24px,3.4vw,38px);margin:8px 0 26px;line-height:1.05}
+.steps{list-style:none;margin:0 0 34px;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.steps li{display:flex;gap:14px;align-items:flex-start;background:var(--panel);border:1px solid var(--line);
+  border-radius:12px;padding:18px}
+.steps .n{flex:none;width:34px;height:34px;border-radius:50%;background:var(--gold-bright);color:#1a1205;
+  font-family:var(--serif);font-weight:700;display:grid;place-items:center;font-size:17px}
+.steps h3{font-family:var(--serif);font-weight:600;font-size:17px;margin:2px 0 6px;line-height:1.15}
+.steps p{margin:0;font-size:14px;color:var(--muted);line-height:1.5}
+.stat-tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:20px;display:flex;flex-direction:column}
+.stat .num{font-family:var(--serif);font-weight:700;font-size:clamp(30px,3.4vw,42px);line-height:1;color:var(--gold-bright)}
+.stat .num.scarlet{color:#e97077}
+.stat p{margin:10px 0 12px;font-size:14px;color:#dbe3f0;line-height:1.45;flex:1}
+.stat .cite{font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--muted);text-decoration:none}
+.stat .cite:hover{color:var(--gold-bright)}
+@media(max-width:860px){.steps{grid-template-columns:1fr}.stat-tiles{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.stat-tiles{grid-template-columns:1fr}}
