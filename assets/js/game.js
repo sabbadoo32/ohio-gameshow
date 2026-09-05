@@ -73,7 +73,9 @@ function initGame(BANK){
   function centerFor(gi){ return (reelWindow.clientHeight/2) - (gi*SW + SW/2); }
   function placeReel(gi,anim){ reelTrack.style.transition = anim||'none'; reelTrack.style.transform='translateY('+centerFor(gi)+'px)'; }
   function initReel(){ SW=reelTrack.children[0].getBoundingClientRect().height||88; placeReel(startCopy*N+prevK); }
-  window.addEventListener('resize',function(){ if(spinning)return; SW=reelTrack.children[0].getBoundingClientRect().height||88; placeReel(startCopy*N+prevK); });
+  function recenter(){ if(spinning)return; SW=reelTrack.children[0].getBoundingClientRect().height||88; placeReel(startCopy*N+prevK); }
+  window.addEventListener('resize',recenter);
+  if(window.ResizeObserver){ new ResizeObserver(recenter).observe(reelWindow); } // keep centered as the reel height tracks the question tile
   var bulbs=document.getElementById('bulbs');for(var b=0;b<28;b++){var el=document.createElement('i');el.style.animationDelay=(b*0.08)+'s';bulbs.appendChild(el);}
 
   // ---------- dynamic deck (no-repeat across plays) ----------
