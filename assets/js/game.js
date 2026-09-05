@@ -6,29 +6,29 @@ function initGame(BANK){
 
   // ---------- host banter ----------
   var LINES={
-    intro:["Welcome to the only game where the house is a <b>billionaire</b>! Let's play!",
-           "Step right up! Every spin's a loser — just like his promises. Round one!",
-           "You brought your tax dollars? <b>Adorable.</b> Let's give them away!"],
-    pre:["Fact… or <b>Fiction</b>? Trust your gut. Your gut is about to cost you.",
+    intro:["Welcome! Watch <b>Vivek</b> and his billionaire buddies win — every single time!",
+           "Step right up and see how the system's rigged for the rich. Round one!",
+           "You brought your tax dollars? <b>Vivek thanks you.</b> Let's play!"],
+    pre:["Fact… or <b>Fiction</b>? Trust your gut — it'll still cost you.",
          "Read it careful now. Lock in your answer!",
-         "Here's your claim. What's it gonna be, contestant?"],
-    guess:["Locking it in! Now give that wheel a spin!",
-           "Bold choice! The wheel decides your wallet's fate…",
-           "Ooh, confident! Let's see what the house says."],
-    lossSmall:["Only a few hundred? He's just getting warmed up.",
-               "Small loss. He'll make it up in volume, trust me.",
-               "A little off the top for the house!"],
-    lossBig:["<b>Ouch!</b> The house cleans up again!",
-             "Big spin, bigger loss — for you!",
-             "That's a chunk of your schools, folks!"],
-    houseAll:["<b>HOUSE TAKES ALL!</b> He loves that wedge.",
-              "And it's GONE. The house thanks you for your service."],
-    rightGuess:["You nailed the fact… and lost anyway. <b>That's</b> the game!",
-                "Correct! Doesn't matter one bit. Spin's a spin!"],
+         "Here's your claim. Fact or fiction, folks?"],
+    guess:["Locked in! Now spin — let's see what it costs you.",
+           "Bold choice! The wheel decides how much you lose…",
+           "Ooh, confident! Let's watch your money vanish."],
+    lossSmall:["Just a little — Vivek's only getting started.",
+               "A small skim off the top for the billionaires!",
+               "A little more for Vivek's pile!"],
+    lossBig:["<b>Ouch!</b> Straight into Vivek's pocket!",
+             "Big one — the billionaires say thanks!",
+             "That's your schools, funding Vivek's next tax break!"],
+    houseAll:["<b>VIVEK TAKES IT ALL!</b> His favorite outcome.",
+              "And it's GONE — Vivek pockets the whole thing."],
+    rightGuess:["You nailed the fact… and lost anyway. <b>That's</b> how it's rigged!",
+                "Correct! Doesn't matter one bit — the billionaires still win."],
     wrongGuess:["Fell for the spin! Don't feel bad — that's the whole plan.",
                 "Wrong! His talking points got you. They usually do."],
-    outroBroke:["Cleaned out! <b>He always wins.</b>","Wallet: empty. Him: richer. Any of this sound familiar?"],
-    outro:["And that's our show! The house went home richer. <b>Every time.</b>","Thanks for playing the rigged game. He'll see you at the ballot box."]
+    outroBroke:["Cleaned out! <b>Vivek always wins.</b>","Empty wallet, richer billionaire. Sound familiar?"],
+    outro:["That's our show! The billionaires went home richer. <b>Every time.</b>","Thanks for playing — regular people got screwed again."]
   };
   var lastLine={};
   function say(pool){var arr=LINES[pool],i;do{i=Math.floor(Math.random()*arr.length);}while(arr.length>1&&i===lastLine[pool]);lastLine[pool]=i;return arr[i];}
@@ -150,7 +150,7 @@ function initGame(BANK){
       gresEl.className='gres '+(correct?'win':'lose');
       gresEl.textContent=correct?'✓ You guessed right — and lost anyway':'✗ You guessed wrong';
       explEl.textContent=c.explanation;
-      lossEl.textContent='The reel landed on '+WEDGES[k].label.replace('|',' ')+' → the house took '+money(amt)+' of your tax dollars.';
+      lossEl.textContent='The reel landed on '+WEDGES[k].label.replace('|',' ')+' → '+money(amt)+' of your tax dollars went to Vivek & the billionaires.';
       srcEl.innerHTML='<span><a href="'+c.sourceUrl+'" target="_blank" rel="noopener">Read the source</a> <span class="pub">'+c.sourcePublisher+'</span></span>';
       reveal.classList.add('show');
       host(WEDGES[k].amt>=1200?'houseAll':(amt>=250?'lossBig':'lossSmall'));

@@ -26,7 +26,9 @@ a{color:var(--gold-bright)}
 .hero{text-align:center;padding:36px 0 6px}
 .hero h1{font-family:var(--serif);font-weight:700;font-size:clamp(34px,6.4vw,70px);line-height:.94;letter-spacing:-.01em;margin:12px 0 10px;text-wrap:balance}
 .hero h1 span{color:var(--gold-bright)}
-.hero p{color:var(--muted);max-width:52ch;margin:0 auto;font-size:16.5px}
+.hero .tagline{font-family:var(--serif);font-style:italic;font-weight:600;color:var(--gold-bright);
+  font-size:clamp(18px,2.8vw,27px);line-height:1.15;margin:0 0 16px;max-width:none}
+.hero p{color:var(--muted);max-width:56ch;margin:0 auto;font-size:16.5px}
 
 .scores{grid-column:1 / -1;display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:0}
 .score{border:1px solid var(--line);border-radius:14px;padding:16px 18px;background:var(--panel)}
