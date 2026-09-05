@@ -28,7 +28,7 @@ a{color:var(--gold-bright)}
 .hero h1 span{color:var(--gold-bright)}
 .hero p{color:var(--muted);max-width:52ch;margin:0 auto;font-size:16.5px}
 
-.scores{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:620px;margin:24px auto 0}
+.scores{grid-column:1 / -1;display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:0}
 .score{border:1px solid var(--line);border-radius:14px;padding:16px 18px;background:var(--panel)}
 .score .l{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0 0 6px}
 .score .v{font-family:var(--serif);font-weight:700;font-size:clamp(26px,5vw,40px);line-height:1;font-variant-numeric:tabular-nums}
