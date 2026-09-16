@@ -144,6 +144,7 @@ footer{border-top:1px solid var(--line);padding:22px 0 40px;color:var(--muted);f
   font-family:var(--serif);font-weight:700;display:grid;place-items:center;font-size:17px}
 .steps h3{font-family:var(--serif);font-weight:600;font-size:17px;margin:2px 0 6px;line-height:1.15}
 .steps p{margin:0;font-size:14px;color:var(--muted);line-height:1.5}
+.tiles-title{font-family:var(--serif);font-weight:600;font-size:clamp(20px,2.6vw,26px);margin:6px 0 16px;line-height:1.1}
 .stat-tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
 .stat{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:20px;display:flex;flex-direction:column}
 .stat .num{font-family:var(--serif);font-weight:700;font-size:clamp(30px,3.4vw,42px);line-height:1;color:var(--gold-bright)}
