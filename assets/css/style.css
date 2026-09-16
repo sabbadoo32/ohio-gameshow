@@ -33,6 +33,8 @@ a{color:var(--gold-bright)}
   font-size:clamp(18px,2.8vw,27px);line-height:1.15;margin:0 0 16px;max-width:none}
 .hero p{color:var(--muted);max-width:56ch;margin:0 auto;font-size:16.5px}
 
+.rules{grid-column:1 / -1;margin:0 0 4px;font-size:14px;color:var(--muted);line-height:1.5;max-width:80ch}
+.rules strong{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-bright);margin-right:4px}
 .scores{grid-column:1 / -1;display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:0}
 .score{border:1px solid var(--line);border-radius:14px;padding:16px 18px;background:var(--panel)}
 .score .l{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0 0 6px}
