@@ -40,6 +40,8 @@ a{color:var(--gold-bright)}
 .score.you{border-color:rgba(58,111,224,.5)}.score.you .v{color:#7fa6f2}
 .score.house{border-color:rgba(224,69,79,.5)}.score.house .v{color:var(--scarlet)}
 .score .sub{font-family:var(--mono);font-size:10px;color:var(--muted);margin:6px 0 0}
+.score .sub a{color:var(--gold-bright);text-decoration:underline;text-underline-offset:2px}
+.score .sub a:hover{color:#fff}
 
 .stage{display:grid;grid-template-columns:1fr 2fr;gap:30px;align-items:stretch;padding:30px 0 60px}
 .stage>*{min-width:0}
