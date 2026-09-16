@@ -17,7 +17,10 @@ a{color:var(--gold-bright)}
 .marquee .bulbs i{width:6px;height:6px;border-radius:50%;background:var(--gold-bright);box-shadow:0 0 8px var(--gold-bright);animation:blink 1.2s infinite}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
 .top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 0}
-.brand{font-family:var(--serif);font-weight:700;font-size:18px;text-decoration:none;color:var(--ink)}
+.brand{font-family:var(--serif);font-weight:700;font-size:18px;text-decoration:none;color:var(--ink);
+  display:flex;align-items:center;gap:11px;line-height:1}
+.brand-logo{height:36px;width:auto;display:block;flex:none}
+@media(max-width:560px){.brand-logo{height:30px}.brand span{display:none}}
 .top-right{display:flex;align-items:center;gap:10px}
 .badge{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;border:1px solid var(--gold);color:var(--gold-bright);border-radius:100px;padding:5px 11px}
 .audiobtn{font-family:var(--mono);font-size:11px;background:var(--panel);border:1px solid var(--line);color:var(--ink);border-radius:100px;padding:6px 12px;cursor:pointer}
